@@ -1,0 +1,15 @@
+[Unit]
+Description=system_health_checker_notifier.sh : System health checker/notifier script
+After=local-fs.target
+
+[Service]
+ExecStart=/path/to/system_health_checker_notifier.sh
+Type=simple
+Restart=on-failure
+RestartSec=500ms
+KillSignal=SIGTERM
+
+[Install]
+WantedBy=multi-user.target
+Alias=system-status.service
+
